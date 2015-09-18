@@ -1,0 +1,112 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html ng-app="financ">
+<head>
+<link rel="stylesheet" type="text/css"
+	href="resources/css/bootstrap/css/bootstrap.min.css" />
+</head>
+
+<body ng-controller="FinancController as fina">
+
+	<script type="text/javascript"
+		src="resources/js/angular/angular.min.js"></script>
+	<script type="text/javascript" src="resources/js/app.js"></script>
+
+	<div>
+		<p>Input something in the input box:</p>
+		<p>
+			Name : <input type="text" ng-model="name"
+				placeholder="Enter name here:">
+		</p>
+		<button type="button">OK</button>
+		<h1>Hello {{name}}</h1>
+	</div>
+	<br />
+
+	<div ng-repeat="saida in fina.saidas | orderBy:'-data'">
+		<section ng-init="tab = 1" ng-controller="PanelController as panel">
+			<h3>Gasto: {{saida.descricao}}</h3>
+			<ul class="nav nav-pills">
+				<li ng-class="{ panel.isSelectedTab(1) }">
+					<a href ng-click="panel.selectTab(1)">Descrição</a>
+				</li>
+				<li ng-class="{ panel.isSelectedTab(2) }">
+					<a href ng-click="panel.selectTab(2)">Pagamento</a>
+				</li>
+				<li ng-class="{ panel.isSelectedTab(3) }">
+					<a href ng-click="panel.selectTab(3)">Revisao</a>
+				</li>
+			</ul>
+			<div class="pamel" ng-show="panel.isSelectedTab(1)">
+				<p>{{saida.data | date:'dd/MM/yyyy'}}</p>
+				<p><b>Tipo de Gasto:</b> {{saida.tipo | uppercase}}</p>
+				<p><b>Pago a:</b> {{saida.recebedor}}</p>
+			</div>
+			<div class="pamel" ng-show="panel.isSelectedTab(2)">
+				<p><b>Dividido em:</b> {{saida.divido_em}}</p>
+				<p><b>Tipo de Pagamento: </b>{{saida.pagamento | uppercase}}</p>
+				<p><b>Preço pago: </b>{{saida.preco | currency}}</p>
+				<input type="checkbox" checked="{{saida.realizado ? 'checked' : 'unchecked' }}" /> Gasto Realizado
+			</div>
+			<div class="pamel" ng-show="panel.isSelectedTab(3)">
+				<p>{{saida.data | date:'dd/MM/yyyy'}}</p>
+				<p><b>Tipo de Gasto:</b> {{saida.tipo | uppercase}}</p>
+				<p><b>Pago a:</b> {{saida.recebedor}}</p>
+				<p><b>Dividido em: </b>{{saida.divido_em}}</p>
+				<p><b>Tipo de Pagamento: </b>{{saida.pagamento | uppercase}}</p>
+				<p><b>Preço pago: </b>{{saida.preco | currency}}</p>
+				<input type="checkbox" checked="{{saida.realizado ? 'checked' : 'unchecked' }}" /> Gasto Realizado
+			</div>
+		</section>
+		<br>
+		<hr />
+	</div>
+	<br />
+	<div>
+		<form action="">
+			<table>
+				<tr>
+					<th>Data:</th>
+					<th><input type="datetime" placeholder="Digite a data"></th>
+				</tr>
+				<tr>
+					<td>Descrição Gasto:</td>
+					<td><input type="text" placeholder="Escolha o tipo"></td>
+				</tr>
+				<tr>
+					<td>Tipo de Gasto:</td>
+					<td><input type="text" placeholder="Digite a descrição"></td>
+				</tr>
+				<tr>
+					<td>Pago a:</td>
+					<td><input type="number" placeholder="Digite o recebedor do pagamento"></td>
+				</tr>
+				<tr>
+					<td>Dividido em:</td>
+					<td><input type="number" placeholder="Digite a quantidade de parcelas"></td>
+				</tr>
+				<tr>
+					<td>Tipo de Pagamento:</td>
+					<td><input type="number" placeholder="Digite o tipo de pagamento"></td>
+				</tr>
+				<tr>
+					<td>Preco pago:</td>
+					<td><input type="number" placeholder="Digite o valor"></td>
+				</tr>
+				<tr>
+					<td>Gasto Realizado:</td>
+					<td><input type="checkbox" checked="saida.realizado" /> </td>
+				</tr>
+				<tr>
+					<td>reviewForm is {{ reviewForm.$valid }}</td>
+					<td></td>
+				</tr>
+				<tr>
+					<td><input type="submit" value="OK" /></td>
+					<td></td>
+				</tr>
+			</table>
+		</form>
+	</div>
+</body>
+
+</html>
