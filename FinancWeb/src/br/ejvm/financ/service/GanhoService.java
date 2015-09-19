@@ -3,10 +3,10 @@ package br.ejvm.financ.service;
 import java.util.List;
 import java.util.Map;
 
-import br.ejvm.financ.dao.GanhoDaoImpl;
+import br.ejvm.financ.dao.GanhoDao;
 import br.ejvm.financ.dao.GenericDao;
 
-public class GanhoService implements GenericService<GanhoDaoImpl>{
+public class GanhoService extends GenericService<GanhoDao>{
 
 	private static final long serialVersionUID = 1L;
 
@@ -22,7 +22,7 @@ public class GanhoService implements GenericService<GanhoDaoImpl>{
 	 * @see br.com.money.model.dao.GenericDao#create(java.lang.Object)
 	 */
 	@Override
-	public GanhoDaoImpl create(GanhoDaoImpl t) {
+	public GanhoDao create(GanhoDao t) {
 		return this.getDao().create(t);
 	}
 
@@ -39,7 +39,7 @@ public class GanhoService implements GenericService<GanhoDaoImpl>{
 	 * @see br.com.money.model.dao.GenericDao#find(java.lang.Object)
 	 */
 	@Override
-	public GanhoDaoImpl find(Object id) {
+	public GanhoDao find(Object id) {
 		return this.getDao().find(id);
 	}
 
@@ -47,7 +47,7 @@ public class GanhoService implements GenericService<GanhoDaoImpl>{
 	 * @see br.com.money.model.dao.GenericDao#update(java.lang.Object)
 	 */
 	@Override
-	public GanhoDaoImpl update(GanhoDaoImpl t) {
+	public GanhoDao update(GanhoDao t) {
 		return this.getDao().update(t);
 	}
 
@@ -55,7 +55,7 @@ public class GanhoService implements GenericService<GanhoDaoImpl>{
 	 * @see br.com.money.model.dao.GenericDao#list()
 	 */
 	@Override
-	public List<GanhoDaoImpl> list() {
+	public List<GanhoDao> list() {
 		return this.getDao().list();
 	}
 
@@ -67,19 +67,11 @@ public class GanhoService implements GenericService<GanhoDaoImpl>{
 		this.getDao().commit();		
 	}
 
-	/* (non-Javadoc)
-	 * @see br.com.money.model.service.GenericService#getDao()
-	 */
-	@Override
-	public GenericDao<GanhoDaoImpl> getDao() {
+	public GenericDao<GanhoDao> getDao() {
 		return this.getDao();
 	}
 
-	/* (non-Javadoc)
-	 * @see br.com.money.model.service.GenericService#setDao(br.com.money.model.dao.GenericDao)
-	 */
-	@Override
-	public void setDao(GenericDao<GanhoDaoImpl> dao) {
+	public void setDao(GenericDao<GanhoDao> dao) {
 		this.setDao(dao);
 	}
 

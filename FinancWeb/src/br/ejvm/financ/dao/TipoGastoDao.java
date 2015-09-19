@@ -7,7 +7,7 @@ import br.ejvm.financ.entity.TipoGastoEntity;
  * @author EduardoMatos
  *
  */
-public interface TipoGastoDao extends GenericDao<TipoGastoEntity> {
+public class TipoGastoDao extends GenericDao<TipoGastoEntity> {
 	
 	
 //    private Session session = null;

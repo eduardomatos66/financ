@@ -1,6 +1,6 @@
 package br.ejvm.financ.service;
 
-public abstract class GenericServiceImp<T> implements GenericService<T> {
+public abstract class GenericServiceImp<T> extends GenericService<T> {
 
 	private static final long serialVersionUID = 1L;
 //	@Override

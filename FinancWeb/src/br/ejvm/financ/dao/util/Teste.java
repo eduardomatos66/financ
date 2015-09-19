@@ -3,9 +3,7 @@ package br.ejvm.financ.dao.util;
 import java.util.Date;
 
 import br.ejvm.financ.dao.GastoDao;
-import br.ejvm.financ.dao.GastoDaoImpl;
 import br.ejvm.financ.dao.TipoGastoDao;
-import br.ejvm.financ.dao.TipoGastoDaoImp;
 import br.ejvm.financ.entity.GastoEntity;
 import br.ejvm.financ.entity.TipoGastoEntity;
 //import javax.persistence.EntityManager;
@@ -33,11 +31,11 @@ public class Teste {
 //        
 //
         TipoGastoEntity tipoGasto = new TipoGastoEntity("Eletrônico");
-        TipoGastoDao tipoGastoDao = new TipoGastoDaoImp();
+        TipoGastoDao tipoGastoDao = new TipoGastoDao();
         
         tipoGastoDao.create(tipoGasto);
         
-        GastoDao gastoDao = new GastoDaoImpl();
+        GastoDao gastoDao = new GastoDao();
         gastoDao.create(gasto);
 //        gastoDao.commit();
         
